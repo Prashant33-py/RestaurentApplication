@@ -1,20 +1,40 @@
 package com.restaurent.management.service.impl;
 
 import com.restaurent.management.model.FoodItem;
+import com.restaurent.management.repository.FoodItemRepository;
 import com.restaurent.management.service.FoodItemService;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service
 public class FootItemServiceImpl implements FoodItemService {
 
-    private List<FoodItem> foodItems = new ArrayList<>();
+
+    @Autowired
+    private FoodItemRepository foodItemRepository;
 
     @Override
     public List<FoodItem> getAllFoodItems() {
-        foodItems.add(new FoodItem(1,"Rice","This is rice", List.of("Rice","water"),60));
-        foodItems.add(new FoodItem(2,"Dal","This is dal", List.of("Dal", "Water"),50));
-        foodItems.add(new FoodItem(3,"Fish","This is fish", List.of("Fish", "salt"),200));
-        return foodItems;
+        return foodItemRepository.findAll();
+    }
+
+    @Override
+    public void addFoodItems(List<FoodItem> newFoodItems) {
+        foodItemRepository.saveAll(newFoodItems);
+    }
+
+    @Override
+    public void addFoodItem(FoodItem newFoodItem) {
+        foodItemRepository.save(newFoodItem);
+    }
+
+    @Override
+    public FoodItem getFoodItemByName(String name) {
+        return foodItemRepository.findFoodItemByName(name);
     }
 }
