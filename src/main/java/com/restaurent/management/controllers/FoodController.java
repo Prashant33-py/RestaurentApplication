@@ -17,13 +17,20 @@ public class FoodController {
     @Autowired
     private FoodItemService foodItemService;
 
-    @GetMapping("/api")
+    @GetMapping("/api/getAllFoodItems")
     private ResponseEntity<List<FoodItem>> getAllFoodItems(){
         return ResponseEntity.status(HttpStatus.OK).body(foodItemService.getAllFoodItems());
     }
 
-    @PostMapping("/api")
-    private void addFoodItem(@RequestBody FoodItem foodItem){
+    @PostMapping("/api/addFoodItem")
+    private HttpStatus addFoodItem(@RequestBody FoodItem foodItem){
+        System.out.println(foodItem);
         foodItemService.addFoodItem(foodItem);
+        return HttpStatus.CREATED;
+    }
+
+    @PutMapping("/api/updateFoodItem/{id}")
+    private void updateFoodItem(@PathVariable("id") String foodItemId, @RequestBody FoodItem updateFoodItem){
+        foodItemService.updateFoodItem(foodItemId, updateFoodItem);
     }
 }

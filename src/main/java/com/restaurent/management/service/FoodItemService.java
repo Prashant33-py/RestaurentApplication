@@ -9,5 +9,5 @@ public interface FoodItemService {
 
     public void addFoodItems(List<FoodItem> newFoodItems);
     public void addFoodItem(FoodItem newFoodItem);
-    public FoodItem getFoodItemByName(String name);
+    public void updateFoodItem(String id, FoodItem updateFoodItem);
 }

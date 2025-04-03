@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface FoodItemRepository extends MongoRepository<FoodItem, Integer> {
+public interface FoodItemRepository extends MongoRepository<FoodItem, String> {
     @Query("{name:'?0'}")
     FoodItem findFoodItemByName(String name);
 }

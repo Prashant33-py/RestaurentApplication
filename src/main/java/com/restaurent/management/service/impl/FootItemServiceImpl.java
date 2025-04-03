@@ -33,7 +33,11 @@ public class FootItemServiceImpl implements FoodItemService {
     }
 
     @Override
-    public FoodItem getFoodItemByName(String name) {
-        return foodItemRepository.findFoodItemByName(name);
+    public void updateFoodItem(String foodItemId, FoodItem foodItem) {
+        FoodItem oldFoodItem;
+        if (foodItemRepository.findById(foodItemId).isPresent()){
+            oldFoodItem = foodItemRepository.findById(foodItemId).get();
+        }
+
     }
 }
