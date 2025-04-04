@@ -9,5 +9,6 @@ public interface FoodItemService {
 
     public void addFoodItems(List<FoodItem> newFoodItems);
     public void addFoodItem(FoodItem newFoodItem);
-    public void updateFoodItem(String id, FoodItem updateFoodItem);
+    public void updateFoodItem(String foodItemId, FoodItem updateFoodItem);
+    public void deleteFoodItem(String foodItemId);
 }

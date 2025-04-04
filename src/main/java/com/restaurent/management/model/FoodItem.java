@@ -14,7 +14,7 @@ import java.util.UUID;
 @ToString
 public class FoodItem {
     @Id
-    private String Id = UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
     private String name;
     private String description;
     private String ingredients;

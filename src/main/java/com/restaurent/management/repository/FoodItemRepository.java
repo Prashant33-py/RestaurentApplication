@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface FoodItemRepository extends MongoRepository<FoodItem, String> {
-    @Query("{name:'?0'}")
-    FoodItem findFoodItemByName(String name);
 }
